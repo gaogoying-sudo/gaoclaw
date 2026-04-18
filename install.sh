@@ -58,9 +58,9 @@ fi
 print_info "创建目录结构..."
 mkdir -p "$HERMES_HOME"
 mkdir -p "$HERMES_HOME/scripts"
-mkdir -p "$HERMES_HOME/profiles/daguanjia/docs"
-mkdir -p "$HERMES_HOME/profiles/xiaochu"
-mkdir -p "$HERMES_HOME/profiles/goudan"
+mkdir -p "$HERMES_HOME/profiles/admin/docs"
+mkdir -p "$HERMES_HOME/profiles/dev"
+mkdir -p "$HERMES_HOME/profiles/architect"
 mkdir -p "$HERMES_HOME/skills/productivity"
 mkdir -p "$HERMES_HOME/skills/devops"
 mkdir -p "$HERMES_HOME/logs"
@@ -109,18 +109,18 @@ _Last updated: 2026-04-18_
 ---
 📌 活跃项目索引
 
-**项目注册表位置：** ~/.hermes/profiles/daguanjia/docs/RESOURCE.md
+**项目注册表位置：** ~/.hermes/profiles/admin/docs/RESOURCE.md
 
 | 项目 | 角色 | 路径 | 状态 |
 |------|------|------|------|
-| CLM-REVIEW-TOOL | 小厨 | /Projects/clm-tools-kw/ | Phase3 完成 |
-| OpenViking | 狗蛋 | /Projects/OpenViking/ | 评估中 |
+| MyProject | 开发者 | /Projects/clm-tools-kw/ | Phase3 完成 |
+| OpenViking | 架构师 | /Projects/OpenViking/ | 评估中 |
 
 **角色区分：**
-- 大管家 = 整机所有项目总控台
-- 小厨/小强 = CLM 项目专属
+- 管理员 = 整机所有项目总控台
+- 开发者/小强 = CLM 项目专属
 - 小妹 = 语气可爱（待定）
-- 狗蛋 = 软件架构师
+- 架构师 = 软件架构师
 
 🔑 用户核心诉求
 1. AI 行为一致性机制（信息持久化）
@@ -143,11 +143,11 @@ print_success "memory.md 已写入"
 # 写入 Profile SOUL.md
 print_info "配置角色人格..."
 
-cat > "$HERMES_HOME/profiles/daguanjia/SOUL.md" << 'SOULEOF'
-# 大管家 - 本地项目管理中心
+cat > "$HERMES_HOME/profiles/admin/SOUL.md" << 'SOULEOF'
+# 管理员 - 本地项目管理中心
 
 ## 角色身份
-你是**大管家**，用户的本地所有项目总控台。负责管理、运维、协调用户的全部本地项目。
+你是**管理员**，用户的本地所有项目总控台。负责管理、运维、协调用户的全部本地项目。
 
 ## 职责范围
 - 所有项目的任务看板管理
@@ -182,22 +182,21 @@ cat > "$HERMES_HOME/profiles/daguanjia/SOUL.md" << 'SOULEOF'
 6. Obsidian 笔记（如用户说"沉淀一下"）
 SOULEOF
 
-cat > "$HERMES_HOME/profiles/xiaochu/SOUL.md" << 'SOULEOF'
-# 小厨/小强 - CLM 项目专属
+cat > "$HERMES_HOME/profiles/dev/SOUL.md" << 'SOULEOF'
+# 开发者/小强 - CLM 项目专属
 
 ## 角色身份
-你是**小厨**（也叫小强），CLM-REVIEW-TOOL 项目专属 AI。负责口味工程师日总结系统的开发和维护。
+你是**开发者**（也叫小强），MyProject 项目专属 AI。负责项目开发管理系统的开发和维护。
 
 ## 项目信息
-- **路径：** /Users/mac/Projects/clm-tools-kw/
-- **云 IP:** 82.156.187.35
-- **阶段：** Phase 3 完成 → 云部署
-- **飞书配置：** APP_ID: cli_a92b81d03838dbb3，测试群：oc_c2eaef0dca9716e687620eec72bbcaa6
+- **路径：** /Projects/my-project/
+- **云 IP:** YOUR_CLOUD_IP
+- **阶段：** 开发中 → 云部署（请自行配置）
 
 ## 职责范围
 - CLM 项目前后端开发
 - 数据同步链路维护
-- 飞书集成对接
+- 消息平台集成对接
 - 云环境部署运维
 - 项目文档更新
 
@@ -208,14 +207,14 @@ cat > "$HERMES_HOME/profiles/xiaochu/SOUL.md" << 'SOULEOF'
 
 ## 工作原则
 1. 开始工作前读取 docs/TASK_BOARD.md
-2. 修改代码前查询 MemPalace (wing: clm_review_tool)
+2. 修改代码前查询 MemPalace (wing: my_db_tool)
 3. 会话结束更新 docs/progress.md 和 TASK_BOARD.md
 4. API 错误（401 等）立即告知，不继续尝试
 
 ## 快捷命令
 - 用户说"沉淀一下" → 创建 CLM 项目会话记录
 - 用户说"继续开发" → 读取进度后继续
-- 用户说"部署" → 准备云部署流程
+- 用户说"部署" → 准备云部署（请自行配置）流程
 - 用户说"今天先到这" → 执行会话收尾流程
 
 ## 会话收尾流程
@@ -227,11 +226,11 @@ cat > "$HERMES_HOME/profiles/xiaochu/SOUL.md" << 'SOULEOF'
 6. Obsidian 笔记（如用户说"沉淀一下"）
 SOULEOF
 
-cat > "$HERMES_HOME/profiles/goudan/SOUL.md" << 'SOULEOF'
-# 狗蛋 - 软件架构师
+cat > "$HERMES_HOME/profiles/architect/SOUL.md" << 'SOULEOF'
+# 架构师 - 软件架构师
 
 ## 角色身份
-你是**狗蛋**，软件架构师角色。负责源码分析、代码结构解析、核心软件技能抽象、技术基建沉淀。
+你是**架构师**，软件架构师角色。负责源码分析、代码结构解析、核心软件技能抽象、技术基建沉淀。
 
 ## 职责范围
 - 代码结构分析和可视化
@@ -340,37 +339,37 @@ print_success "git-health-check.py 已写入"
 
 # 创建 RESOURCE.md
 print_info "创建资源登记册..."
-cat > "$HERMES_HOME/profiles/daguanjia/docs/RESOURCE.md" << 'RESOURCEEOF'
+cat > "$HERMES_HOME/profiles/admin/docs/RESOURCE.md" << 'RESOURCEEOF'
 # 项目资源登记册
 
 **最后更新：** 2026-04-18  
-**维护者：** 大管家  
+**维护者：** 管理员  
 **用途：** 所有项目的资源索引（服务器、数据库、API、端口等）
 
 ---
 
-## 一、CLM-REVIEW-TOOL（小厨负责）
+## 一、MyProject（开发者负责）
 
 ### 项目信息
 | 字段 | 值 |
 |------|-----|
-| 路径 | /Users/mac/Projects/clm-tools-kw/ |
-| 角色 | 小厨/小强 |
-| 阶段 | Phase 3 完成 → 云部署 |
+| 路径 | /Projects/my-project/ |
+| 角色 | 开发者/小强 |
+| 阶段 | 开发中 → 云部署（请自行配置） |
 
 ### 云环境
 | 资源 | 配置 |
 |------|------|
-| 云主机 IP | 82.156.187.35 |
+| 云主机 IP | YOUR_CLOUD_IP |
 | SSH 用户 | root |
 | SSH 密钥 | ~/.ssh/clm_tencent_ed25519 |
 
-### 飞书配置
+### 消息平台配置
 | 字段 | 值 |
 |------|-----|
-| APP_ID | cli_a92b81d03838dbb3 |
-| 测试群 chat_id | oc_c2eaef0dca9716e687620eec72bbcaa6 |
-| 安全配置 | FEISHU_DRY_RUN=true, FEISHU_TEST_MODE=true |
+| APP_ID | YOUR_APP_ID |
+| 测试群 chat_id | YOUR_CHAT_ID |
+| 安全配置 | APP_DRY_RUN=true, APP_TEST_MODE=true |
 
 ---
 
@@ -378,7 +377,7 @@ cat > "$HERMES_HOME/profiles/daguanjia/docs/RESOURCE.md" << 'RESOURCEEOF'
 
 | 项目 | 路径 | 角色 | 状态 |
 |------|------|------|------|
-| OpenViking | /Projects/OpenViking/ | 狗蛋 | 评估中 |
+| OpenViking | /Projects/OpenViking/ | 架构师 | 评估中 |
 
 ---
 
@@ -439,12 +438,12 @@ echo "     编辑 ~/.hermes/.env 或运行 hermes setup"
 echo ""
 echo "  ${YELLOW}2. 验证 Profile${NC}"
 echo "     hermes profile list"
-echo "     应看到：default, daguanjia, xiaochu, goudan"
+echo "     应看到：default, admin, dev, architect"
 echo ""
 echo "  ${YELLOW}3. 开始使用${NC}"
-echo "     daguanjia chat \"你好\""
-echo "     xiaochu chat \"继续开发\""
-echo "     goudan chat \"分析一下\""
+echo "     admin chat \"你好\""
+echo "     dev chat \"继续开发\""
+echo "     architect chat \"分析一下\""
 echo ""
 echo "  ${YELLOW}4. 查看文档${NC}"
 echo "     https://github.com/gaogoying-sudo/gaoclaw"
@@ -452,5 +451,5 @@ echo ""
 echo "═══════════════════════════════════════════════════════════"
 echo ""
 print_info "提示：运行以下命令查看健康度"
-echo "  daguanjia chat \"看一下健康度\""
+echo "  admin chat \"看一下健康度\""
 echo ""

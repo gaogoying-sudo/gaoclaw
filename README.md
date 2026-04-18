@@ -25,14 +25,14 @@ hermes setup
 **开始使用：**
 
 ```bash
-# 大管家（总控台）
-daguanjia chat
+# 管理员（总控台）
+admin chat
 
-# 小厨（CLM 项目专属）
-xiaochu chat
+# 开发者（技术专属）
+dev chat
 
-# 狗蛋（软件架构师）
-goudan chat
+# 架构师（代码分析）
+architect chat
 ```
 
 ---
@@ -55,7 +55,7 @@ goudan chat
 ### 企业级特性
 
 1. **多角色隔离架构**
-   - 3 个独立 Profile（大管家/小厨/狗蛋）
+   - 3 个独立 Profile（管理员/开发者/架构师）
    - 每个角色独立人格配置（SOUL.md）
    - 会话标签系统（修改 Hermes 核心代码实现）
 
@@ -91,13 +91,13 @@ gaoclaw/
 │   │   ├── terminal-audit-query.py # 命令审计查询
 │   │   └── migrate_add_session_tags.py # 数据库迁移
 │   └── profiles/
-│       ├── daguanjia/            # 大管家 Profile
+│       ├── admin/                # 管理员 Profile
 │       │   ├── SOUL.md           # 人格配置
 │       │   └── docs/
 │       │       └── RESOURCE.md   # 资源登记册
-│       ├── xiaochu/              # 小厨 Profile
+│       ├── dev/                  # 开发者 Profile
 │       │   └── SOUL.md
-│       └── goudan/               # 狗蛋 Profile
+│       └── architect/            # 架构师 Profile
 │           └── SOUL.md
 └── skills/
     ├── session-auto-wrapup/      # 自动化 Session 收尾
@@ -114,11 +114,11 @@ gaoclaw/
 
 ```python
 # 创建带标签的会话
-AIAgent(session_tags="daguanjia,clm-project")
+AIAgent(session_tags="admin,project-a")
 
 # 按标签搜索会话
-session_search(query="飞书配置", tags_filter="daguanjia")
-session_search(query="前端重构", tags_filter="xiaochu")
+session_search(query="API 配置", tags_filter="admin")
+session_search(query="前端重构", tags_filter="dev")
 ```
 
 **数据库迁移：**
@@ -210,10 +210,10 @@ hermes setup
 
 # 4. 验证 Profile
 hermes profile list
-# 应看到：default, daguanjia, xiaochu, goudan
+# 应看到：default, admin, dev, architect
 
 # 5. 开始使用
-daguanjia chat "你好"
+admin chat "你好"
 ```
 
 ### 手动安装
@@ -236,24 +236,24 @@ hermes setup
 ### 角色切换
 
 ```bash
-# 大管家 - 所有项目总控台
-daguanjia chat "看一下所有项目的健康度"
+# 管理员 - 所有项目总控台
+admin chat "看一下所有项目的健康度"
 
-# 小厨 - CLM 项目专属
-xiaochu chat "继续前端重构"
+# 开发者 - 项目开发专属
+dev chat "继续前端开发"
 
-# 狗蛋 - 软件架构师
-goudan chat "分析一下这个代码结构"
+# 架构师 - 代码架构分析
+architect chat "分析一下这个代码结构"
 ```
 
 ### 常用命令
 
 ```bash
 # 查看健康度
-daguanjia chat "看一下健康度"
+admin chat "看一下健康度"
 
 # 更新系统文档
-daguanjia chat "更新系统文档"
+admin chat "更新系统文档"
 
 # 会话收尾
 任何角色 chat "今天先到这，沉淀一下"
@@ -268,7 +268,7 @@ python3 ~/.hermes/scripts/terminal-audit-query.py --cmd git
 
 ### 非商业使用
 
-> **本项目纯属个人装逼使用，不涉及任何商业行为。**
+> **本项目纯属个人学习研究使用，不涉及任何商业行为。**
 >
 > - ✅ 完全开源，基于 [Hermes Agent](https://github.com/NousResearch/hermes-agent)
 > - ✅ 个人学习、研究、娱乐目的
